@@ -642,8 +642,27 @@
         // 2. STATE & FIREBASE SETUP
         // ==========================================
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'smart-attendance-multiroom';
-        let firebaseConfig = null;
-        try {
+        let firebaseConfig = {// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCDviB5CPa6V8sdZNN_wcjKVkghOKgyphs",
+  authDomain: "my-smart-attendance-2741a.firebaseapp.com",
+  projectId: "my-smart-attendance-2741a",
+  storageBucket: "my-smart-attendance-2741a.firebasestorage.app",
+  messagingSenderId: "1012346524336",
+  appId: "1:1012346524336:web:96983d8c2d416cb4902175",
+  measurementId: "G-Z1HW31JB3G"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
             firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         } catch (e) { console.error("Config parse error", e); }
 
